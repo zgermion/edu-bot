@@ -1,0 +1,13 @@
+version: '3'
+services:
+  flask:
+    build: ./backend
+    container_name: eng-bot
+    environment:
+      - PYTHONUNBUFFERED=True                   
+    restart: on-failure
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "5000:5000"
+    command: flask run
